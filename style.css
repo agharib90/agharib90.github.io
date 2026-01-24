@@ -1,93 +1,44 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(180deg, #020617, #0f172a);
+  font-family: Consolas, monospace;
+  background: #020617;
   color: #e5e7eb;
 }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 64px;
-  margin: 0;
-  color: #38bdf8;
-}
-
-.hero h2 {
-  font-weight: 400;
-  margin: 10px 0;
-}
-
-.hero p {
-  max-width: 600px;
-  opacity: 0.9;
-}
-
-.buttons {
-  margin-top: 30px;
-}
-
-.buttons a {
-  padding: 12px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: 600;
-  background: #38bdf8;
-  color: #020617;
-}
-
-.buttons .secondary {
-  background: transparent;
-  color: #38bdf8;
-  border: 2px solid #38bdf8;
-}
-
-.container {
-  max-width: 1000px;
+.terminal {
+  max-width: 900px;
   margin: auto;
-  padding: 80px 20px;
+  padding: 60px 20px;
 }
 
-h3 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  border-left: 5px solid #38bdf8;
-  padding-left: 15px;
+.line {
+  margin-top: 20px;
+}
+
+.prompt {
+  color: #22c55e;
+}
+
+.path {
+  color: #38bdf8;
+}
+
+.output {
+  margin-left: 20px;
+  margin-top: 8px;
+  color: #d1d5db;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
 }
 
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.project h4 {
-  margin-top: 0;
-  color: #38bdf8;
+.grid span {
+  background: rgba(255,255,255,0.05);
+  padding: 8px 12px;
+  border-radius: 6px;
 }
 
 a {
@@ -97,6 +48,6 @@ a {
 footer {
   text-align: center;
   padding: 30px;
-  background: #020617;
-  font-size: 14px;
+  font-size: 13px;
+  opacity: 0.6;
 }
