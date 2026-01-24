@@ -1,77 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Consolas, monospace;
-  background: #020617;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #0f172a;
   color: #e5e7eb;
+  line-height: 1.7;
 }
 
-.terminal {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
+.hero {
+  text-align: center;
+  padding: 100px 20px 80px;
+  background: linear-gradient(180deg, #020617, #0f172a);
 }
 
-.line {
-  margin-top: 20px;
-}
-
-.prompt {
-  color: #22c55e;
-}
-
-.path {
+.hero h1 {
+  font-size: 56px;
+  margin: 0;
   color: #38bdf8;
 }
 
-.output {
-  margin-left: 20px;
-  margin-top: 8px;
-  color: #d1d5db;
+.hero h2 {
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 20px auto 0;
+  opacity: 0.9;
+}
+
+.section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 70px 20px;
+  animation: fadeUp 0.8s ease;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  border-left: 5px solid #38bdf8;
+  padding-left: 15px;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
 }
 
-.grid span {
-  background: rgba(255,255,255,0.05);
-  padding: 8px 12px;
-  border-radius: 6px;
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 25px;
+  border-radius: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-a {
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(56,189,248,0.2);
+}
+
+.project h4 {
+  margin-top: 0;
   color: #38bdf8;
+}
+
+.contact a {
+  color: #22c55e;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 footer {
   text-align: center;
   padding: 30px;
-  font-size: 13px;
-  opacity: 0.6;
+  background: #020617;
+  font-size: 14px;
+  opacity: 0.7;
 }
 
-.fade {
-  animation: fadeIn 0.6s ease forwards;
-}
-
-@keyframes fadeIn {
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(-5px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.card, .grid span {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.grid span:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(56,189,248,0.4);
 }
