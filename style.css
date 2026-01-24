@@ -57,12 +57,14 @@ h3 {
   background: rgba(255, 255, 255, 0.06);
   padding: 25px;
   border-radius: 14px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(56,189,248,0.2);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
 }
 
 .project h4 {
