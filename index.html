@@ -3,188 +3,704 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Ahmed Gharib | Senior IT Operations Lead</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <title>IT Portfolio | Senior IT Officer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #3498db;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: moveBackground 20s linear infinite;
+    }
+
+    @keyframes moveBackground {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(50px, 50px);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.4s backwards;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      animation: fadeInUp 1s ease-out 0.6s backwards;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #667eea;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #667eea;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: #2c3e50;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .profile-image {
+      width: 100%;
+      max-width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      color: white;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      color: #666;
+    }
+
+    .skill-card li {
+      padding: 0.3rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .skill-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    /* Experience Section */
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -3.5rem;
+      top: 2rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #667eea;
+      border: 4px solid white;
+      box-shadow: 0 0 0 4px #667eea;
+    }
+
+    .timeline-date {
+      color: #667eea;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item h3 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-company {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-item ul {
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .cert-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .cert-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    }
+
+    .cert-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-year {
+      opacity: 0.8;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    #contact h2::after {
+      background: white;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 15px;
+      min-width: 250px;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-image {
+        margin: 0 auto;
+      }
+
+      .timeline {
+        padding-left: 2rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Ahmed Gharib</h1>
-
-    <h2 data-en>Senior IT Operations Lead – Global Service Delivery</h2>
-    <h2 data-ar style="display:none">قائد عمليات تكنولوجيا المعلومات – تقديم الخدمات العالمية</h2>
-
-    <p data-en>
-      Leading global IT service delivery and IT operations across multi-country environments,
-      ensuring SLA-driven support, operational excellence, and high availability of
-      business-critical systems.
-    </p>
-
-    <p data-ar style="display:none">
-      قيادة عمليات تكنولوجيا المعلومات وتقديم الخدمات التقنية عبر بيئات متعددة الدول،
-      مع ضمان الالتزام باتفاقيات مستوى الخدمة، واستمرارية الأنظمة الحيوية للأعمال.
-    </p>
-
-    <div class="actions">
-      <a href="AhmedGharib.pdf" class="btn" download>Download CV (PDF)</a>
-      <button class="btn secondary" onclick="toggleLang()">AR / EN</button>
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Senior IT Officer</h1>
+      <p class="subtitle">10+ Years of IT Excellence | Infrastructure & Security Specialist</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="#about" class="btn btn-secondary">Learn More</a>
+      </div>
     </div>
   </section>
 
-  <!-- SUMMARY -->
-  <section class="section">
-    <h3 data-en>Professional Summary</h3>
-    <h3 data-ar style="display:none">الملخص المهني</h3>
-
-    <p data-en>
-      Senior IT Operations Lead with 10+ years of experience managing global IT service
-      delivery and service desk operations across multi-country environments, supporting
-      more than 500 users across 7 locations. Expert in ITIL-based Incident, Request, and
-      Problem Management, SLA governance, and continuous service improvement within
-      24/7 operational environments.
-    </p>
-
-    <p data-ar style="display:none">
-      قائد عمليات تكنولوجيا معلومات بخبرة تزيد عن 10 سنوات في إدارة تقديم خدمات تكنولوجيا
-      المعلومات ومكاتب الدعم الفني عبر بيئات متعددة الدول، ودعم أكثر من 500 مستخدم
-      في 7 مواقع، مع خبرة عميقة في ITIL وإدارة الحوادث والطلبات والمشكلات.
-    </p>
-  </section>
-
-  <!-- CORE COMPETENCIES -->
-  <section class="section">
-    <h3 data-en>Core Competencies</h3>
-    <h3 data-ar style="display:none">المهارات الأساسية</h3>
-
-    <div class="grid">
-      <div class="card">Global IT Service Delivery</div>
-      <div class="card">Service Desk Operations & Governance</div>
-      <div class="card">ITIL v4 (Incident, Request, Problem)</div>
-      <div class="card">SLA & KPI Management (FCR, MTTR, CSAT)</div>
-      <div class="card">Major Incident & Escalation Management</div>
-      <div class="card">IT Operations & Support Governance</div>
-      <div class="card">Process Improvement & Shift-Left Strategy</div>
-      <div class="card">Vendor & Stakeholder Management</div>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <div class="profile-image">👨‍💻</div>
+      <div class="about-text">
+        <p>Senior-level IT professional with 10 years of experience supporting IT operations. I bring a strong
+          background in successful IT implementation and presentation to key stakeholders, successfully coordinating
+          project work to mitigate risks and solve technical issues while providing IT budget oversight.</p>
+        <br>
+        <p>I excel at optimizing security standards, improving planning processes, and managing systems implementation.
+          My expertise spans disaster recovery planning, roadmapping, and team development, ensuring robust and
+          resilient IT infrastructure for organizations.</p>
+        <br>
+        <p><strong>Location:</strong> Suez, Egypt</p>
+        <p><strong>Languages:</strong> Arabic (Native), English (B2), German (B1)</p>
+      </div>
     </div>
   </section>
 
-  <!-- TECHNICAL ENVIRONMENT -->
-  <section class="section">
-    <h3 data-en>Technical Environment</h3>
-    <h3 data-ar style="display:none">البيئة التقنية</h3>
-
-    <div class="grid">
-      <div class="card">Microsoft 365 & Google Workspace</div>
-      <div class="card">Windows Server & Active Directory</div>
-      <div class="card">Azure AD & Intune (Endpoint Management)</div>
-      <div class="card">Docker & Containerized Services</div>
-      <div class="card">Jira & ManageEngine ServiceDesk</div>
-      <div class="card">Sophos & FortiGate Firewalls</div>
-      <div class="card">Veeam Backup & Disaster Recovery</div>
-      <div class="card">VMware ESXi, Hyper-V & Virtualization</div>
-      <div class="card">VPN, Network Monitoring & Security</div>
+  <section id="skills">
+    <h2>Core Competencies</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🔒</div>
+        <h3>Security & Compliance</h3>
+        <ul>
+          <li>Sophos & Kaspersky Endpoint</li>
+          <li>Microsoft Intune</li>
+          <li>FortiGate & Sophos Firewall</li>
+          <li>IT Risk Management</li>
+          <li>IT Compliance</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🌐</div>
+        <h3>Network Administration</h3>
+        <ul>
+          <li>Network Systems Installation</li>
+          <li>Routers & Switches</li>
+          <li>DNS & DHCP</li>
+          <li>VPN Management</li>
+          <li>Network Repairs</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">☁️</div>
+        <h3>Infrastructure & Virtualization</h3>
+        <ul>
+          <li>VMware ESXi</li>
+          <li>Hyper-V</li>
+          <li>Active Directory</li>
+          <li>Server Management</li>
+          <li>DevOps Practices</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💾</div>
+        <h3>Backup & Recovery</h3>
+        <ul>
+          <li>Veeam Backup</li>
+          <li>Veritas</li>
+          <li>Disaster Recovery Planning</li>
+          <li>Data Backups</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎫</div>
+        <h3>IT Service Management</h3>
+        <ul>
+          <li>ManageEngine ServiceDesk</li>
+          <li>ITIL Framework</li>
+          <li>Ticket System Management</li>
+          <li>24/7 Remote Support</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📱</div>
+        <h3>Mobile & Applications</h3>
+        <ul>
+          <li>MDM ManageEngine</li>
+          <li>Microsoft PowerApps</li>
+          <li>IT Asset Management</li>
+          <li>Hardware Monitoring</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section class="section">
-    <h3 data-en>Professional Experience</h3>
-    <h3 data-ar style="display:none">الخبرة العملية</h3>
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">April 2014 - Present</div>
+        <h3>IT Senior Officer</h3>
+        <div class="timeline-company">TAQA ARABIA Gas Arm, Suez, Egypt</div>
+        <ul>
+          <li>Managed network and system performance, conducting troubleshooting, security patching, and maintenance
+          </li>
+          <li>Implemented and monitored company security solutions (Sophos, Kaspersky Endpoint, Microsoft Intune)</li>
+          <li>Managed company firewalls (FortiGate, Sophos), routers, switches, servers, CCTV, DHCP, DNS, and Active
+            Directory across Egypt</li>
+          <li>Provided 24/7 remote support for Dubai, Nigeria, Senegal, and Egypt branches</li>
+          <li>Improved IT infrastructure through advanced network security measures and system upgrades</li>
+          <li>Conducted thorough risk assessments and recommended proactive threat mitigation measures</li>
+          <li>Developed and led large-scale technology initiatives for long-term strategic plans</li>
+          <li>Ensured proper backup of all business-related data using Veeam and Veritas</li>
+        </ul>
+      </div>
 
-    <div class="card project">
-      <h4>Senior IT Operations Lead</h4>
-      <p><strong>TAQA Arabia – Gas Arm</strong><br>
-        Cairo, Egypt | Apr 2014 – Present</p>
+      <div class="timeline-item">
+        <div class="timeline-date">February 2011 - April 2014</div>
+        <h3>Network Administrator</h3>
+        <div class="timeline-company">Atlantic Marine Suez Branch, Suez</div>
+        <ul>
+          <li>Identified and resolved issues with network devices promptly</li>
+          <li>Maintained network hardware and software across 24 branches and HQ</li>
+          <li>Performed day-to-day LAN and WAN administration, maintenance, and support</li>
+          <li>Managed company VPN, FortiGate firewall, internet, network, Wi-Fi, servers, CCTV, DNS, DHCP, and Active
+            Directory</li>
+          <li>Installed and configured fingerprint machines and time attendance software for 750+ employees</li>
+        </ul>
+      </div>
 
-      <ul data-en>
-        <li>Own end-to-end IT service delivery and global service desk operations across Egypt, Dubai, Nigeria, and
-          Senegal.</li>
-        <li>Manage ITIL-aligned Incident, Request, and Problem Management processes ensuring SLA compliance.</li>
-        <li>Act as escalation point for major incidents, coordinating infrastructure, security, and application teams.
-        </li>
-        <li>Lead regional IT teams and service desk engineers in 24/7 operational environments.</li>
-        <li>Oversee identity, access management, endpoint security, backup, and disaster recovery systems.</li>
-        <li>Support containerized and automated services using Docker within operational environments.</li>
-        <li>Drive continuous service improvement through ticket trend analysis, root cause analysis, and automation.
-        </li>
-      </ul>
-
-      <ul data-ar style="display:none">
-        <li>إدارة تقديم خدمات تكنولوجيا المعلومات ومكاتب الدعم الفني عبر مصر ودبي ونيجيريا والسنغال.</li>
-        <li>تطبيق عمليات ITIL لإدارة الحوادث والطلبات والمشكلات وضمان الالتزام باتفاقيات مستوى الخدمة.</li>
-        <li>العمل كنقطة تصعيد للحوادث الكبرى والتنسيق بين فرق البنية التحتية والأمن والتطبيقات.</li>
-        <li>قيادة فرق تقنية إقليمية تعمل في بيئات تشغيل على مدار الساعة.</li>
-        <li>الإشراف على أنظمة الهوية والصلاحيات وأمن الأجهزة والنسخ الاحتياطي والتعافي من الكوارث.</li>
-        <li>دعم الخدمات المؤتمتة والمبنية على الحاويات باستخدام Docker.</li>
-      </ul>
+      <div class="timeline-item">
+        <div class="timeline-date">February 2009 - July 2010</div>
+        <h3>Help Desk Support Specialist</h3>
+        <div class="timeline-company">Egypt Network Co., Cairo</div>
+        <ul>
+          <li>Provided Tier 1 IT support to non-technical internal users</li>
+          <li>Installed, modified, and repaired software and hardware to resolve technical issues</li>
+          <li>Configured hardware, devices, and software for employee workstations</li>
+          <li>Walked users through troubleshooting steps to determine and implement solutions</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- EDUCATION & CERTIFICATIONS -->
-  <section class="section">
-    <h3 data-en>Education & Certifications</h3>
-    <h3 data-ar style="display:none">التعليم والشهادات</h3>
-
-    <p>
-      <strong>Bachelor of Social Science – Social Psychology</strong><br>
-      Helwan University, Egypt
-    </p>
-
-    <p>
-      <strong>Certifications:</strong><br>
-      MCSA • CCNA • VMware ESXi • Hyper-V
-    </p>
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <h3>MCSA</h3>
+        <p class="cert-year">March 2013</p>
+      </div>
+      <div class="cert-card">
+        <h3>CCNA</h3>
+        <p class="cert-year">July 2013</p>
+      </div>
+      <div class="cert-card">
+        <h3>VMware ESXi</h3>
+        <p class="cert-year">November 2017</p>
+      </div>
+      <div class="cert-card">
+        <h3>Hyper-V</h3>
+        <p class="cert-year">August 2018</p>
+      </div>
+    </div>
   </section>
 
-  <!-- LANGUAGES -->
-  <section class="section">
-    <h3 data-en>Languages</h3>
-    <h3 data-ar style="display:none">اللغات</h3>
-
-    <p>
-      Arabic (Native) • English (Professional) • German (Intermediate – B1)
-    </p>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section contact">
-    <h3 data-en>Contact</h3>
-    <h3 data-ar style="display:none">التواصل</h3>
-
-    <p>📍 Cairo, Egypt</p>
-    <p>📧 <a href="mailto:ahmed.ghareeb.eng@gmail.com">ahmed.ghareeb.eng@gmail.com</a></p>
-    <p>💼 <a href="https://www.linkedin.com/in/ahmedgharibeng/" target="_blank">LinkedIn Profile</a></p>
-
-    <style>
-      .libutton {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 7px;
-        text-align: center;
-        outline: none;
-        text-decoration: none !important;
-        color: #ffffff !important;
-        width: 200px;
-        height: 32px;
-        border-radius: 16px;
-        background-color: #0A66C2;
-        font-family: "SF Pro Text", Helvetica, sans-serif;
-      }
-    </style>
-    <a class="libutton"
-      href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=ahmedgharibeng"
-      target="_blank">Follow on LinkedIn</a>
+  <section id="contact">
+    <h2>Let's Connect</h2>
+    <p style="font-size: 1.2rem; margin-bottom: 2rem;">I'm always open to discussing new opportunities and
+      collaborations</p>
+    <div class="contact-links">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h3>Email</h3>
+        <a href="mailto:your.email@example.com">Contact Me</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">💼</div>
+        <h3>LinkedIn</h3>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">Connect</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">💻</div>
+        <h3>GitHub</h3>
+        <a href="https://github.com/masy0325" target="_blank">View Profile</a>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2026 Ahmed Gharib • Senior IT Operations Lead</p>
+    <p>&copy; 2026 Senior IT Officer Portfolio. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '0';
+          entry.target.style.transform = 'translateY(20px)';
+          entry.target.style.transition = 'all 0.6s ease-out';
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, 100);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.skill-card, .timeline-item, .cert-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 
 </html>
