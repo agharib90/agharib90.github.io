@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "channel": "stable",
+  "updatedAt": "2026-09-26T20:44:25Z",
+
+  "available": false,
+  "version": null,
+  "mandatory": false,
+
+  "installer": null,
+
+  "message": {
+    "en": "No stable Wh-Bot release is currently published.",
+    "ar": "لا يوجد إصدار Stable منشور من Wh-Bot حاليًا."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "channel": "beta",
+  "updatedAt": "2026-09-26T20:44:25Z",
+
+  "available": false,
+
+  "latestKnownVersion": "1.1.0-rc.1",
+  "latestKnownVersionStatus": "affected",
+
+  "nextVersion": "1.1.0-rc.2",
+
+  "installer": null,
+
+  "reason": {
+    "code": "pdf-media-fix-not-packaged",
+    "message": {
+      "en": "RC1 was built before the validated PDF media compatibility fix. Distribution is disabled.",
+      "ar": "تم بناء RC1 قبل إضافة إصلاح توافق إرسال ملفات PDF، لذلك تم إيقاف توزيعها."
+    }
+  }
+}

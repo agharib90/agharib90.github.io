@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "product": "Wh-Bot",
+  "updatedAt": "2026-09-26T20:44:25Z",
+
+  "overallStatus": "degraded",
+
+  "whatsappEngine": {
+    "package": "whatsapp-web.js",
+    "testedVersion": "1.34.6",
+    "requiredFixes": [
+      "media-x-id-v1"
+    ],
+    "status": "compatible-with-fix"
+  },
+
+  "applicationVersions": {
+    "blocked": [
+      {
+        "version": "1.1.0-rc.1",
+        "reasonCode": "pdf-media-x-id",
+        "severity": "high",
+        "message": {
+          "en": "This packaged release does not contain the validated PDF media compatibility fix.",
+          "ar": "هذه النسخة المجمعة لا تحتوي على إصلاح توافق إرسال ملفات PDF الذي تم التحقق منه."
+        }
+      }
+    ],
+
+    "latestSafeVersion": null
+  },
+
+  "features": {
+    "textSending": {
+      "status": "operational"
+    },
+
+    "pdfSending": {
+      "status": "affected-on-rc1",
+      "requiredFix": "media-x-id-v1"
+    },
+
+    "sessionRestore": {
+      "status": "operational"
+    },
+
+    "duplicateProtection": {
+      "status": "operational"
+    }
+  },
+
+  "recommendedAction": {
+    "code": "wait-for-rc2",
+    "message": {
+      "en": "Use the validated development build with the media fix until Wh-Bot 1.1.0-rc.2 is released.",
+      "ar": "استخدم نسخة التطوير المختبرة التي تحتوي على إصلاح الميديا حتى إصدار Wh-Bot 1.1.0-rc.2."
+    }
+  }
+}
